@@ -34,7 +34,7 @@ export class WeatherGeneratorComponent {
     txHash: string | null = null;
     error: any;
 
-    private readonly CONTRACT_ADDRESS = '0x6C2D57Be5d09CADaFC0D835EDb55F095b5473683';
+    private readonly CONTRACT_ADDRESS = '0xb4F800E5647f9B82Be98068cb98c516f871bb7B8';
     private readonly API_KEY = environment.openWeatherApiKey;
 
     async ngOnInit() {
