@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BaseAccountService } from '../services/base-account.service';
 import { TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 /**
  * WeatherGeneratorComponent
@@ -33,7 +34,7 @@ export class WeatherGeneratorComponent {
     txHash: string | null = null;
 
     private readonly CONTRACT_ADDRESS = '0x0BA3862BD9097042c5bCA2ACD579c8fEb4C34a55';
-    private readonly API_KEY = '0508736c104525dff16d2688aa14d9ec';
+    private readonly API_KEY = environment.openWeatherApiKey;
 
     async ngOnInit() {
         await this._baseAccount.connectWallet();
