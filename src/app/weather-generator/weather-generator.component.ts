@@ -104,8 +104,8 @@ export class WeatherGeneratorComponent {
             );
 
             this.txHash = result?.txHash || result?.hash || null;
-        } catch (err) {
-            this.error = err;
+        } catch (err: any) {
+            this.error = err["message"];
             console.error('❌ Error minting NFT:', err);
         } finally {
             this.loading = false;
