@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>🌤️ Weather NFT Generator</h1>
+    <p>Enter a city name to mint a weather NFT</p>
+
+    <form (ngSubmit)="getWeather()">
+        <input type="text" [(ngModel)]="city" name="city" placeholder="Enter city" class="city-input" />
+        <button type="submit">Get Forecast & Mint</button>
+    </form>
+    
+    @if(loading){
+        <div class="loading">Loading...</div>
+    }
+    @if(weather){
+        <div class="result">
+            <h3>{{ weather.name }}</h3>
+            <p>{{ weather.weather[0].description | titlecase }}</p>
+            <p>Temperature: {{ weather.main.temp }}°C</p>
+            <p>Minting NFT...</p>
+        </div>
+    }
+
+    @if(txHash){
+        <div>
+            <p>✅ NFT minted!</p>
+            <a [href]="getBaseScanLink()" target="_blank">View on BaseScan</a>
+        </div>
+    }
+</div>
