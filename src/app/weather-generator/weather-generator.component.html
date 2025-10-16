@@ -25,4 +25,7 @@
             <a [href]="getBaseScanLink()" target="_blank">View on BaseScan</a>
         </div>
     }
+    @if(error){
+        {{error}}
+    }
 </div>

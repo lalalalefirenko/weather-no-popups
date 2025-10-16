@@ -19,7 +19,7 @@ import { environment } from '../../environments/environment';
     templateUrl: './weather-generator.component.html',
     styleUrls: ['./weather-generator.component.scss'],
     standalone: true,
-    imports: [TitleCasePipe, FormsModule]
+    imports: [TitleCasePipe, FormsModule],
 })
 export class WeatherGeneratorComponent {
 
@@ -32,6 +32,7 @@ export class WeatherGeneratorComponent {
     weather: any;
     loading = false;
     txHash: string | null = null;
+    error: any;
 
     private readonly CONTRACT_ADDRESS = '0x6C2D57Be5d09CADaFC0D835EDb55F095b5473683';
     private readonly API_KEY = environment.openWeatherApiKey;
@@ -104,6 +105,7 @@ export class WeatherGeneratorComponent {
 
             this.txHash = result?.txHash || result?.hash || null;
         } catch (err) {
+            this.error = err;
             console.error('❌ Error minting NFT:', err);
         } finally {
             this.loading = false;
