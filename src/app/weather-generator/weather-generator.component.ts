@@ -126,7 +126,9 @@ export class WeatherGeneratorComponent {
     encodeMintCall(to: string, tokenURI: string): string {
         const selector = '0x40c10f19'; // function selector for mintNFT(address,string)
         const toPadded = to.replace('0x', '').padStart(64, '0');
-        const tokenURIHex = Buffer.from(tokenURI, 'utf8').toString('hex');
+        const tokenURIHex = Array.from(tokenURI)
+            .map(c => c.charCodeAt(0).toString(16).padStart(2, '0'))
+            .join('');
         const lengthHex = tokenURIHex.length / 2;
         const lenPadded = lengthHex.toString(16).padStart(64, '0');
         const offset = '0000000000000000000000000000000000000000000000000000000000000040';
