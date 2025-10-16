@@ -27,7 +27,7 @@ export class BaseAccountService {
             appChainIds: [8453], // Base mainnet (use 84532 for Base Sepolia testnet)
             subAccounts: {
                 creation: 'on-connect',
-                defaultAccount: 'sub'
+                defaultAccount: 'sub',
                 // Auto-spend (auto transfer) is enabled by default
             }
             // Optionally: paymasterUrls, capabilities, etc.
